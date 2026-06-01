@@ -1,0 +1,407 @@
+/* =========================================
+   VARIABLES & CORE (ALTO CONTRASTE Y FLUIDEZ)
+========================================= */
+:root {
+    --bg-base: #0a0a0a;
+    --bg-surface: #141414;
+    --bg-surface-hover: #1a1a1a;
+    
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    
+    --gold-primary: #D4AF37;
+    --gold-accent: #C5A059;
+    --border-subtle: rgba(212, 175, 55, 0.15);
+    
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Outfit', sans-serif; 
+    background-color: var(--bg-base); 
+    color: var(--text-main); 
+    line-height: 1.6; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+
+/* =========================================
+   GLASSMORPHISM HEADER (EFECTO CRISTAL)
+========================================= */
+.header-glass {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.2rem;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.header-glass h1 {
+    color: var(--gold-primary);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    letter-spacing: 2px;
+}
+
+.enlace-volver {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    transition: var(--transition-smooth);
+}
+.enlace-volver:hover { color: var(--text-main); }
+
+/* =========================================
+   HERO & BOTÓN DE ALTA CONVERSIÓN
+========================================= */
+.hero {
+    height: 50vh;
+    min-height: 400px;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.3), var(--bg-base)), url('portada.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-contenido h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: var(--gold-primary);
+    text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    margin-bottom: 1.5rem; /* Ampliado margen inferior para separar del botón */
+}
+
+/* Botón Carta Digital Interactivo */
+.btn-ver-carta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent));
+    color: var(--bg-base);
+    padding: 1.2rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.btn-ver-carta svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-ver-carta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    background: linear-gradient(135deg, #e6c56a, var(--gold-primary));
+    color: var(--bg-base);
+}
+
+.btn-ver-carta:hover svg {
+    transform: translateX(6px);
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+main { 
+    width: 100%;
+    max-width: 800px; 
+    margin: -3rem auto 0 auto; 
+    padding: 0 1.5rem 4rem 1.5rem;
+    flex: 1;
+    position: relative;
+    z-index: 10;
+}
+
+section { 
+    background: var(--bg-surface); 
+    padding: clamp(2rem, 5vw, 4rem); 
+    border-radius: 16px; 
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+section h2 { 
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    text-align: center;
+    color: var(--gold-primary);
+    margin-bottom: 2.5rem;
+}
+
+/* =========================================
+   CARTA: MAQUETACIÓN ALTA COCINA
+========================================= */
+.categoria-seccion { margin-bottom: 3.5rem; }
+
+.titulo-categoria {
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.titulo-categoria::before, .titulo-categoria::after {
+    content: '';
+    height: 1px;
+    width: 40px;
+    background: var(--gold-primary);
+    opacity: 0.5;
+}
+
+.producto-contenedor {
+    padding: 1rem 0;
+    transition: var(--transition-smooth);
+}
+
+.producto-contenedor:hover {
+    transform: translateX(5px);
+}
+
+.producto-fila-principal {
+    display: flex;
+    align-items: flex-end; 
+    width: 100%;
+    margin-bottom: 0.3rem;
+}
+
+.nombre-prod {
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.separador-puntos {
+    flex-grow: 1;
+    border-bottom: 1px dotted var(--text-muted);
+    opacity: 0.3;
+    margin: 0 15px 5px 15px;
+}
+
+.precio-prod {
+    font-size: 1.2rem;
+    color: var(--gold-primary);
+}
+
+.descripcion-prod {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    width: 85%;
+}
+
+/* =========================================
+   FORMULARIOS PREMIUM
+========================================= */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+    .form-grid { grid-template-columns: 1fr 1fr; }
+    .full-width { grid-column: 1 / -1; }
+}
+
+input, textarea { 
+    width: 100%;
+    padding: 1.2rem; 
+    background: rgba(0, 0, 0, 0.2); 
+    border: 1px solid var(--border-subtle); 
+    border-radius: 8px; 
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+}
+
+textarea { resize: vertical; min-height: 100px; }
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold-primary);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+::-webkit-calendar-picker-indicator { filter: invert(1); opacity: 0.5; cursor: pointer; }
+
+button { 
+    padding: 1.2rem; 
+    background: var(--gold-primary); 
+    color: var(--bg-base); 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer; 
+    transition: var(--transition-smooth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+button:hover { background: var(--text-main); }
+button:disabled { background: #333; color: #666; cursor: wait; }
+
+/* =========================================
+   TOAST NOTIFICATIONS
+========================================= */
+#toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.toast {
+    background: var(--bg-surface);
+    border-left: 4px solid var(--gold-primary);
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.toast.mostrar { transform: translateX(0); opacity: 1; }
+.toast-exito { border-color: #10B981; }
+.toast-error { border-color: #EF4444; }
+.toast-icono { font-size: 1.2rem; font-weight: bold; }
+.toast-exito .toast-icono { color: #10B981; }
+.toast-error .toast-icono { color: #EF4444; }
+
+/* =========================================
+   SKELETON LOADERS (ANIMACIÓN DE CARGA)
+========================================= */
+.skeleton-item { margin-bottom: 2rem; }
+
+.skeleton-line {
+    height: 20px;
+    background: linear-gradient(90deg, var(--bg-surface-hover) 25%, #2a2a2a 50%, var(--bg-surface-hover) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+}
+
+.skeleton-title { width: 40%; margin-bottom: 0.8rem; }
+.skeleton-desc { width: 80%; height: 14px; opacity: 0.5; }
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.spinner {
+    width: 18px; height: 18px;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-top-color: var(--bg-base);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* =========================================
+   FOOTER GRID ESTRUCTURADO
+========================================= */
+.footer-contacto {
+    margin-top: auto;
+    padding: 4rem 1.5rem 2rem 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    min-width: 200px;
+}
+
+.footer-col h4 {
+    color: var(--gold-primary);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 0.5rem;
+}
+
+.enlace-contacto { 
+    color: var(--text-muted); 
+    text-decoration: none; 
+    font-size: 0.95rem;
+    transition: var(--transition-smooth); 
+    display: flex;
+    align-items: center;
+}
+
+.enlace-contacto:hover { 
+    color: var(--gold-primary); 
+    transform: translateX(4px);
+}
+
+.copyright { 
+    color: #555 !important; 
+    font-size: 0.85rem; 
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .footer-col {
+        text-align: center;
+        align-items: center;
+    }
+}
