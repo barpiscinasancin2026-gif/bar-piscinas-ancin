@@ -27,6 +27,16 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
+    /* El gradiente rgba oscurece la foto un 60% para que el texto blanco/claro resalte */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondo-bar.jpeg');
+    
+    /* Reglas de comportamiento responsive */
+    background-size: cover;          /* Cubre toda la pantalla sin deformar */
+    background-position: center;     /* Centra la parte más importante de la foto */
+    background-attachment: fixed;    /* Efecto parallax: la foto se queda fija al hacer scroll */
+    background-repeat: no-repeat;
+    
+    color: #ffffff; /* Asegúrate de que el texto principal ahora sea claro */
 }
 
 h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
